@@ -10,7 +10,7 @@ export default function TodoList({ $app, initialState }) {
   this.render = () => {
     console.log(this.state);
     const { todoList } = this.state;
-    console.log(todoList);
+    // console.log(todoList);
     const todoListTemplate = `${todoList
       .map(
         (todo) =>
