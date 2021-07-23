@@ -1,7 +1,7 @@
 export default function TodoList({ $app, initialState }) {
   this.state = initialState;
-  this.$todoListTarget = document.createElement('ul');
-  this.$todoListTarget.className = 'todo-list';
+  this.$todoListTarget = document.createElement('section');
+  this.$todoListTarget.className = 'main';
   $app.appendChild(this.$todoListTarget);
   this.setState = (newState) => {
     this.state = newState;
@@ -11,7 +11,7 @@ export default function TodoList({ $app, initialState }) {
     console.log(this.state);
     const { todoList } = this.state;
     // console.log(todoList);
-    const todoListTemplate = `${todoList
+    const todoListTemplate = `<ul class= 'todo-list'>${todoList
       .map(
         (todo) =>
           `<li>
@@ -26,7 +26,7 @@ export default function TodoList({ $app, initialState }) {
     <input class="edit" value="완료된 타이틀" />
   </li>`
       )
-      .join('')}`;
+      .join('')}</ul>`;
 
     this.$todoListTarget.innerHTML = todoListTemplate;
   };
