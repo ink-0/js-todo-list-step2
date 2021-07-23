@@ -3,12 +3,14 @@ export default function TodoList({ $app, initialState }) {
   this.$todoListTarget = document.createElement('section');
   this.$todoListTarget.className = 'main';
   $app.appendChild(this.$todoListTarget);
+
   this.setState = (newState) => {
     this.state = newState;
     this.render();
   };
+
   this.render = () => {
-    console.log(this.state);
+    // console.log(this.state);
     const { todoList } = this.state;
     // console.log(todoList);
     const todoListTemplate = `<ul class= 'todo-list'>${todoList
