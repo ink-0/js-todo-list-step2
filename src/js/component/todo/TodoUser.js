@@ -1,3 +1,5 @@
+import { getUserList } from '../../api/api.js';
+
 export default function TodoUser({ $app, initialState }) {
   this.state = initialState;
   this.$todoUserTarget = document.createElement('section');
@@ -6,12 +8,15 @@ export default function TodoUser({ $app, initialState }) {
 
   this.setState = (newState) => {
     this.state = newState;
+
     this.render();
   };
-  this.render = () => {
-    const todoUserTemplate = `<div id="user-list">
-      <button class="ripple active">makerjun</button>
-      <button class="ripple">eastjun</button>
+  this.render = async () => {
+    const userList = await getUserList();
+
+    const todoUserTemplate = `<div id="user-list">${userList.map(
+      (user) => `<button class="ripple" id=${user._id}>${user.name}</button>`
+    )}
       <button class="ripple user-create-button" data-action="createUser">
         + 유저 생성
       </button>

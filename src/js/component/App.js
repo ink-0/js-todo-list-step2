@@ -1,6 +1,8 @@
 import TodoApp from './todo/TodoApp.js';
 import TodoTitle from './TodoTitle.js';
 import TodoUser from './todo/TodoUser.js';
+import { getUserList } from '../api/api.js';
+
 export default function App($app) {
   this.state = {
     _id: 'GRSsVg5Ai',
@@ -46,6 +48,9 @@ export default function App($app) {
     this.setState({
       ...this.state,
     });
+    const data = await getUserList();
+
+    console.log(data);
   };
   init();
 }
