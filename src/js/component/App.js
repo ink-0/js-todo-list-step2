@@ -20,6 +20,7 @@ export default function App($app) {
       },
     ],
   };
+
   this.setState = (newState) => {
     todoTitle.setState(newState);
     todoApp.setState(newState);
